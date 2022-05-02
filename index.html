@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Websockets</title>
+</head>
+
+<body>
+   <code id="mock-data"></code>
+    <script>
+        const ws = new WebSocket("ws://localhost:5050");
+        ws.addEventListener("message", function (event) {
+            console.log(event.data);
+            document.getElementById("mock-data").textContent  = event.data
+        });
+        
+        ws.addEventListener('error', function (event) {
+        console.log('WS Error: ', event);
+});
+    </script>
+</body>
+
+</html>
